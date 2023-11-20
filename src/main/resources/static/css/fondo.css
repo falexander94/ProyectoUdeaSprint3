@@ -1,0 +1,6 @@
+.page-top{
+
+background-image: url('${#httpServletRequest.contextPath}/image/https://cdn2.f-cdn.com/contestentries/1108779/25763747/5995bb343b3c7_thumb900.jpg');
+    /* Set other background properties as needed */
+    background-size: cover;
+}

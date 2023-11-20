@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Vigilantes</title>
+</head>
+<body>
+<main>
+   <div class = "px-4 py-5 my-5 text-center">
+       <h1 class = "display-5 fw-bold mb-4">Vigilantes</h1>
+       <div class = "d-flex gap-4 justify-content-center">
+           <div th:each = "vigilantes : ${vigilantes}" class="card" style="width: 18rem;">
+               <div th:switch="${vigilantes.disponible}">
+                   <img th:case = "true" class="card-img-top" src="https://clipground.com/images/policia-png.png" alt="Card image cap">
+                   <img th:case = "false" class="card-img-top" src="https://image.freepik.com/iconos-gratis/policia_318-42816.jpg" alt="Card image cap">
+               </div>
+
+                   <div class="card-body">
+                       <h5 class="card-title" th:text= "${vigilantes.name}"></h5>
+                       <p class="card-text" th:text="${vigilantes.age} + ' Años'"></p>
+                       <p class="card-text" th:text="${vigilantes.company}"></p>
+                       <p class="card-text" th:text="${vigilantes.horas} + ' horas'"></p>
+                       <p class="card-text" th:text="${vigilantes.telefono} + ' telefono'"></p>
+                       <p class="card-text" th:text="${vigilantes.dia}"></p>
+                       <p class="card-text" th:text="${vigilantes.puestoVigilancia}"></p>
+                       <div th:if="${!vigilantes.disponible}">
+                           <form th:action = "@{/Vigilant/{id}(id=${vigilantes.id})}" th:method="patch">
+                               <button type="submit" class="btn btn-primary">Disponible</button>
+
+                           </form>
+
+                       </div>
+
+
+                   </div>
+                <form th:action = "@{/Vigilant/{id}(id=${vigilantes.id})}" th:method = "delete">
+                    <button type="submit" class = "btn btn-danger">Eliminar Vigilante</button>
+                </form>
+
+               <div>
+                   <a th:href = "@{/vigilante/edit/{id}(id=${vigilantes.id})}" class = "btn btn-primary">Editar Vigilante</a>
+               </div>
+
+
+           </div>
+
+
+       </div>
+
+       <div class = "text-center mt-4">
+           <a href="/Vigilants/newVigilant" class="btn btn-secondary">Añadir Vigilante</a>
+
+       </div>
+
+   </div>
+</main>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

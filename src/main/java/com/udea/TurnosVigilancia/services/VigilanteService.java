@@ -73,7 +73,17 @@ public class VigilanteService {
 
 
 
+    public  boolean markVigilanteDisponible(Integer id){
+        Vigilante vigilante = vigilanterepository.findById(id).orElse(null);
+        if(vigilante != null){
+            vigilante.setDisponible(true);
+            vigilanterepository.save(vigilante);
+            return  true;
 
+        }else{
+            return  false;
+        }
+    }
 
      //CRUD: ver Vigilante añadir Vigilante, modificar, eliminar
 

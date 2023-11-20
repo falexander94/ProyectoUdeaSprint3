@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Vigilante</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class = "px-4 py-5 my-5 text-center">
+    <h1>Editar Vigilante</h1>
+    <form th:object ="${vigilante}"th:action = "@{/Vigilante/update}" th:method = "post">
+        <input type ="hidden" th:field="*{id}">
+        <div class = "form-group">
+            <label for="name">Nombre</label>
+            <input type = "text" class = "form-control" id="name" th:field = "*{name}"/>
+        </div>
+        <div class = "form-group">
+            <label for="age">Edad</label>
+            <input type = "text" class = "form-control" id="age" th:field = "*{age}"/>
+        </div>
+        <div class = "form-group">
+            <label for="company">Empresa Seguridad</label>
+            <input type = "text" class = "form-control" id="company" th:field = "*{company}"/>
+        </div>
+
+        <div class = "form-group">
+            <label for="horas">horas</label>
+            <input type = "text" class = "form-control" id="horas" th:field = "*{horas}"/>
+        </div>
+        <div class = "form-group">
+            <label for="telefono">Telefono</label>
+            <input type = "text" class = "form-control" id="telefono" th:field = "*{telefono}"/>
+        </div>
+        <div class = "form-group">
+            <label for="dia">dia</label>
+            <input type = "text" class = "form-control" id="dia" th:field = "*{dia}"/>
+        </div>
+
+        <div class = "form-group">
+            <label for="puestoVigilancia">puestoVigilancia</label>
+            <input type = "text" class = "form-control" id="puestoVigilancia" th:field = "*{puestoVigilancia}"/>
+        </div>
+
+        <div>
+            <button type = "submit" class = "btn btn-primary">Actualizar</button>
+        </div>
+    </form>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
